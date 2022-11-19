@@ -13,6 +13,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
 
+    pokemon.link = pokeDetail.url
     return pokemon
 }
 
@@ -29,6 +30,16 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((response) => response.json())
         .then((jsonBody) => jsonBody.results)
         .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
+        .then((detailRequests) => Promise.all(detailRequests))
+        .then((pokemonsDetails) => pokemonsDetails)
+}
+
+pokeApi.getPokemon = (name=`bulbasaur`) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+
+    return fetch(url)
+        .then((response) => response.json())
+        .then((jsonBody) => convertPokeApiDetailToPokemon)
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
