@@ -1,3 +1,11 @@
+var a = parseInt(gets());
+var N = parseInt(gets());
+var soma = 0;
+for (; a <= N; N--) {
+  soma += (N % a === 0) ? N : 0;
+}
+print(soma);
+
 // Desafio
 // Dado um número A e o seu limite N, encontre a soma de todos os múltiplos A até o seu limite N.
 
@@ -18,20 +26,3 @@
 // Entrada	Saída
 // 3
 // 18	    63
-
-// IMPORTANTE: As funções "gets" e "print" são acessíveis globalmente, onde:  
-// - "gets" : lê UMA linha com dado(s) de entrada (inputs) do usuário; 
-// - "print": imprime um texto de saída (output) e pula uma linha ("\n") automaticamente. 
-
-var a = parseInt(gets());
-var N = parseInt(gets());
-var soma = 0;
- 
-//TODO:  Retorne o valor da soma de todos múltiplos de "A" até o seu limite "N".
-
-for (;a<(N+1);N--){
-    if (N%a == 0){
-        soma=soma+=N;
-    }
-}
-print(soma);

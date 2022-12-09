@@ -1,3 +1,11 @@
+let elementos = [64, 137, -16, 43, 67, 81, -90, 212, 10, 75];
+let valor = parseInt(gets());
+print(
+    elementos.includes(valor) ?
+    ('Achei ' + valor + ' na posicao ' + elementos.findIndex(index => index === valor)) :
+    'Numero ' + valor + ' nao encontrado!'
+);
+
 // Desafio
 // Uma busca sequencial se caracteriza por percorrermos todos os  elementos de uma estrutura em busca do elemento “X” desejado. Neste desafio, dada uma estrutura de vetor A [a1, a2...an], percorra todo o vetor fazendo as comparações de A[N] = X. Caso a condição seja verdadeira, “X” existe na estrutura e a busca será concluída com sucesso. 
 // Considere um array de 10 elementos do tipo inteiro: 
@@ -17,26 +25,4 @@
 // 81                  Achei 81 na posicao 5 
 // 10                  Achei 10 na posicao 8 
 // -16                 Achei –16 na posicao 2 
-// 4                   Numero 4 nao encontrado! 
-
-// IMPORTANTE: As funções "gets" e "print" são acessíveis globalmente, onde:  
-// - "gets" : lê UMA linha com dado(s) de entrada (inputs) do usuário; 
-// - "print": imprime um texto de saída (output) e pula uma linha ("\n") automaticamente. 
-
-let elementos = [64, 137, -16, 43, 67, 81, -90, 212, 10, 75]; 
-
-let valor = parseInt(gets());
-
-//TODO: Retorne o valor do elemento no Array junto de sua respectiva posição.
-
-var result;
-
-for(i=0;i<10;i++){
-    if(elementos[i]==valor){
-        result = `Achei ` + elementos[i] + ` na posicao ` + i;
-        break;
-    }
-    result = `Numero ` + valor + ` nao encontrado!`;
-}
-
-print(result);
+// 4                   Numero 4 nao encontrado!
